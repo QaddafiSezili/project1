@@ -23,7 +23,10 @@ var drawModule = (function () {
   } //Additional food at here named apple.
 
   var scoreText = function() {
-    var score_text = "Score: " + score;
+    var score_text = "Score: ";
+    scoreArray.forEach(score=>{ // loop score array
+      score_text = score_text +" "+score; // print score array
+    })
     ctx.fillStyle = 'blue';
     ctx.fillText(score_text, 145, h-5);
   }
@@ -67,13 +70,15 @@ var drawModule = (function () {
         // Make alteration at this line.
         if(snakeX == food.x && snakeY == food.y) {
           var tail = {x: snakeX, y: snakeY}; //If snake eats/ collide with the food. Create a new head instead of moving the tail.
-          score ++;
+          // score ++;
+          scoreArray.push(score_food_1); // push score for food 1
           
           createFood(); //Create new food
         } else if(snakeX == food2.x && snakeY == food2.y) {
           // Put same condition like you eat first food.
           var tail = {x: snakeX, y: snakeY}; //If snake eats/ collide with the food2. Create a new head instead of moving the tail.
-          score ++;
+          // score ++;
+          scoreArray.push(score_food_2); // push score for food 2
 
           createFood2();//Create new food2. I add this line.
         } else {
