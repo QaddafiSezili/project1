@@ -1,4 +1,3 @@
-
 var drawModule = (function () { 
 
   var bodySnake = function(x, y) {
@@ -23,7 +22,10 @@ var drawModule = (function () {
   } //Additional food at here named apple.
 
   var scoreText = function() {
-    var score_text = "Score: " + score;
+    var score_text = "Score:";
+    scoreArray.forEach(score => {
+      score_text = score_text +" "+ score;
+    })
     ctx.fillStyle = 'blue';
     ctx.fillText(score_text, 145, h-5);
   }
@@ -35,7 +37,15 @@ var drawModule = (function () {
           snake.push({x:i, y:0});
       }  
   }
-    
+
+  //coding pushData sangkut
+
+  var pushData = function(score) {
+    scoreArray.push(score);
+
+    var pval = ", ";
+  }
+   
   var paint = function(){
       ctx.fillStyle = 'lightgrey';
       ctx.fillRect(0, 0, w, h);
@@ -67,30 +77,37 @@ var drawModule = (function () {
         // Make alteration at this line.
         if(snakeX == food.x && snakeY == food.y) {
           var tail = {x: snakeX, y: snakeY}; //If snake eats/ collide with the food. Create a new head instead of moving the tail.
-          // score ++;
-          scoreArray.push(score_food_1); // push score for food 1  ***ISSUES: My system doesnt appear the score.
-          
-          createFood(); //Create new food
-        } else if(snakeX == food2.x && snakeY == food2.y) {
-          var tail = {x: snakeX, y: snakeY}; //If snake eats/ collide with the food2. Create a new head instead of moving the tail.
-          // score ++;
-          scoreArray.push(score_food_2); // push score for food 2  ***ISSUES: My system doesnt appear the score.
+          pushData(score_food_1); // coding yang ni sangkut  
 
-          createFood2();//Create new food2.
+          createFood(); //Create new food when snake eat food.
+        } else if(snakeX == food2.x && snakeY == food2.y) {
+          // Put same condition like you eat first food.
+          var tail = {x: snakeX, y: snakeY}; //If snake eats/ collide with the food2. Create a new head instead of moving the tail.
+          pushData(score_food_2); // coding yang ni sangkut  
+          
+          createFood2();//Create new food when snake eat food2.
         } else {
           var tail = snake.pop(); //pops out the last cell.
           tail.x = snakeX; 
           tail.y = snakeY;
         }
+
         //The snake can now eat the food.
         snake.unshift(tail); //puts back the tail as the first cell
 
         for(var i = 0; i < snake.length; i++) {
           bodySnake(snake[i].x, snake[i].y);
         } 
-        
+
+        /* letak coding score tu dekat sini. However this code does not work. 
+        var password = function collectScore(scoreText){
+          for (var i = 0; i <= 4; i++) {
+            score.push(score_text);
+          }
+        } */
         pizza(food.x, food.y); 
         apple(food2.x, food2.y);
+        
         scoreText();
   }
 
@@ -121,7 +138,7 @@ var drawModule = (function () {
         var snakeX = snake[i].x;
         var snakeY = snake[i].y;
       
-        if (food2.x===snakeX && food2.y === snakeY || food2.y === snakeY && food2.x===snakeX) {
+        if (food2.x === snakeX && food2.y === snakeY || food2.y === snakeY && food2.x===snakeX) {
           food2.x = Math.floor((Math.random() * 30) + 1);
           food2.y = Math.floor((Math.random() * 30) + 1);
         }
