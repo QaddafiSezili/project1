@@ -11,3 +11,4 @@ var snake;
 var snakeSize = 10;
 var food;
 var food2;
+var eat = 0;
