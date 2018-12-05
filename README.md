@@ -1,6 +1,8 @@
 # Snake game
 **Name:** Maria Cristina Di Termine
 
+**Editted by:** Qaddafi Sezili (2018)
+
 **Category:** Canvas HTML5 and Javascript
 
 **Date:** February 2015
@@ -71,17 +73,20 @@ var snakeY = snake[0].y;
 ### Additional notes by Qaddafi
 ```js
 
-  Issue 1 (resolved):
+  Issue 1 (resolved)
   Yang ni saya edit part call food. 
   I create another same function but different name to call different type of food.
   However, I have an issue where the sysyem won't start when I create the same function.
   That is the problem so far.
   I also hereby the original source of code of the game named Backup file.
 
-  Issue 2 (02 / 12 / 2018) *resolved.
+  Issue 2 (02/12/2018) *resolved.
   The system is display the score as normal. 
   It display the value of the eaten food (eg. 1 or 2)
   I have issue where I want to display the score as array (eg. Score: 1 , 1 , 2 , 1)
   I have not yet found the solution, I already apply the push() function but still haven't display the score as above.
+  
+  Issue 3 (05/12/18)
+  I cannot reset the game after 4th counter.
 
 ```
