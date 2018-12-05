@@ -22,6 +22,16 @@ var drawModule = (function () {
         ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
   } //Additional food at here named apple.
 
+  //Display the score in array
+  var scoreText = function() {
+    var score_text = "Score: ";
+    scoreArray.forEach(score=> {
+      score_text = score_text +" "+ score;
+    })
+    ctx.fillStyle = 'blue';
+    ctx.fillText(score_text, 145, h-5);
+  }
+  
   var scoreText = function() {
     var score_text = "Score: " + score;
     ctx.fillStyle = 'blue';
