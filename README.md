@@ -73,7 +73,7 @@ var snakeY = snake[0].y;
 ### Additional notes by Qaddafi
 ```js
 
-  Issue 1 (resolved)
+  Issue 1 *resolved
   Yang ni saya edit part call food. 
   I create another same function but different name to call different type of food.
   However, I have an issue where the sysyem won't start when I create the same function.
@@ -87,6 +87,6 @@ var snakeY = snake[0].y;
   I have not yet found the solution, I already apply the push() function but still haven't display the score as above.
   
   Issue 3 (05/12/18)
-  I cannot reset the game after 4th counter.
+  I cannot reset the game after 4th counter. (I suspect the problem at line 100 - 103)
 
 ```
