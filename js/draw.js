@@ -1,4 +1,3 @@
-
 var drawModule = (function () { 
 
   var bodySnake = function(x, y) {
@@ -22,7 +21,6 @@ var drawModule = (function () {
         ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
   } //Additional food at here named apple.
 
-  //Display the score in array
   var scoreText = function() {
     var score_text = "Score: ";
     scoreArray.forEach(score=> {
@@ -30,13 +28,7 @@ var drawModule = (function () {
     })
     ctx.fillStyle = 'blue';
     ctx.fillText(score_text, 145, h-5);
-  }
-  
-  var scoreText = function() {
-    var score_text = "Score: " + score;
-    ctx.fillStyle = 'blue';
-    ctx.fillText(score_text, 145, h-5);
-  }
+  } // Display score in array here.
 
   var drawSnake = function() {
       var length = 4;
@@ -68,41 +60,49 @@ var drawModule = (function () {
       if (snakeX == -1 || snakeX == w/snakeSize || snakeY == -1 || snakeY == h/snakeSize || checkCollision(snakeX, snakeY, snake)) {
           //restart game
           btn.removeAttribute('disabled', true);
-
           ctx.clearRect(0,0,w,h);
           gameloop = clearInterval(gameloop);
+          //window.alert("Your score is : display arrayScore");  //to display the score after die
           return;          
         }
 
-        // Make alteration at this line.
-        if(snakeX == food.x && snakeY == food.y) {
+        if (eat < 4) { //create condition where snake only need eat 4 times to complete the game
+
+          if(snakeX == food.x && snakeY == food.y) {
           var tail = {x: snakeX, y: snakeY}; //If snake eats/ collide with the food. Create a new head instead of moving the tail.
-          // score ++;
-          scoreArray.push(score_food_1); // push score for food 1  ***ISSUES: My system doesnt appear the score.
-          
+          scoreArray.push(score_food_1); // push score for food 1
           createFood(); //Create new food
-        } else if(snakeX == food2.x && snakeY == food2.y) {
-          var tail = {x: snakeX, y: snakeY}; //If snake eats/ collide with the food2. Create a new head instead of moving the tail.
-          // score ++;
-          scoreArray.push(score_food_2); // push score for food 2  ***ISSUES: My system doesnt appear the score.
+          eat++; //create counter
+          } else if(snakeX == food2.x && snakeY == food2.y) {
+            var tail = {x: snakeX, y: snakeY}; //If snake eats/ collide with the food2. Create a new head instead of moving the tail.
+            scoreArray.push(score_food_2); // push score for food 2
+            createFood2();//Create new food2.
+            eat++; //create counter
+          } else {
+            var tail = snake.pop(); //pops out the last cell.
+            tail.x = snakeX; 
+            tail.y = snakeY;
+          }
+          //The snake can now eat the food.
+          snake.unshift(tail); //puts back the tail as the first cell
 
-          createFood2();//Create new food2.
+          for(var i = 0; i < snake.length; i++) {
+            bodySnake(snake[i].x, snake[i].y);
+          } 
+          
+          pizza(food.x, food.y); 
+          apple(food2.x, food2.y);
+          scoreText();
+
         } else {
-          var tail = snake.pop(); //pops out the last cell.
-          tail.x = snakeX; 
-          tail.y = snakeY;
-        }
-        //The snake can now eat the food.
-        snake.unshift(tail); //puts back the tail as the first cell
+          window.alert("Your score is : your saved score here.."); // Display arrayScore and end the game
 
-        for(var i = 0; i < snake.length; i++) {
-          bodySnake(snake[i].x, snake[i].y);
-        } 
-        
-        pizza(food.x, food.y); 
-        apple(food2.x, food2.y);
-        scoreText();
-  }
+          // I want to reset the game at here.
+          btn.removeAttribute('disabled', true);
+          ctx.clearRect(0,0,w,h);
+          gameloop = clearInterval(gameloop);
+        } // close eat loop condition
+  }// close var paint function
 
   var createFood = function() {
       food = {
@@ -154,10 +154,8 @@ var drawModule = (function () {
       gameloop = setInterval(paint, 80);
   }
 
-
     return {
       init : init
-    };
+    };   
 
-    
 }());
