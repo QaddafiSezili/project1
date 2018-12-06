@@ -111,10 +111,20 @@ var drawModule = (function() {
       apple(food2.x, food2.y);
       scoreText();
     } else {
-      window.alert("Your score is : your saved score here.."); // Display arrayScore and end the game
+      
+      /*document.getElementById('theScore').value = scoreString;
+      var scoreString = function() {
+        return scoreArray.toString();
+      };*/
 
-      // I want to reset the game at here.
-      btn.removeAttribute("disabled", true);
+      document.getElementById('theScore').value = scoreString;
+      var scoreString = function() {
+        var score = new scoreArray();
+        score.toString();
+      }
+      
+      window.alert("Your score is : your saved score here.."); // Display arrayScore and end the game
+      btn.removeAttribute("disabled", true); //Reset the game
       ctx.clearRect(0, 0, w, h);
       gameloop = clearInterval(gameloop);
     } // close eat loop condition
