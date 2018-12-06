@@ -122,12 +122,14 @@ var drawModule = (function() {
 
       //display score into HTML
       var totalScoreString = function() {
-        var totalScore = 0;
-        scoreArray.forEach(score => (totalScore = totalScore + score));
+        var totalScore = "Total Score is:";
+        scoreArray.forEach(score => {
+          totalScore = totalScore + " " + score;
+        });
         return totalScore.toString();
       };
       
-      document.getElementById("theScore").innerHTML = "TOTAL Score is : " + totalScoreString();
+      document.getElementById("theScore").innerHTML = totalScoreString();
 
       window.alert("Your score is : your saved score here.."); // Display arrayScore and end the game
       btn.removeAttribute("disabled", true); //Reset the game
