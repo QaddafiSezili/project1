@@ -48,6 +48,9 @@ var drawModule = (function() {
   };
 
   var paint = function() {
+
+    document.getElementById("theScore").innerHTML = ""; //reset back score value on html
+
     ctx.fillStyle = "lightgrey";
     ctx.fillRect(0, 0, w, h);
     ctx.strokeStyle = "black";
@@ -111,19 +114,21 @@ var drawModule = (function() {
       apple(food2.x, food2.y);
       scoreText();
     } else {
-      
       // Display the score into html
       /*document.getElementById('theScore').value = scoreString;
       var scoreString = function() {
         return scoreArray.toString();
       };*/
 
-      document.getElementById('theScore').value = scoreString;
-      var scoreString = function() {
-        var score = new scoreArray();
-        score.toString();
-      }
+      //display score into HTML
+      var totalScoreString = function() {
+        var totalScore = 0;
+        scoreArray.forEach(score => (totalScore = totalScore + score));
+        return totalScore.toString();
+      };
       
+      document.getElementById("theScore").innerHTML = "TOTAL Score is : " + totalScoreString();
+
       window.alert("Your score is : your saved score here.."); // Display arrayScore and end the game
       btn.removeAttribute("disabled", true); //Reset the game
       ctx.clearRect(0, 0, w, h);
@@ -182,7 +187,7 @@ var drawModule = (function() {
     eat = 0;
     scoreArray = [];
   };
-  
+
   var init = function() {
     direction = "down";
     initValues();

@@ -37,6 +37,9 @@
       margin: 18px 0 5px 8px;
       float: left;
     }
+    .pinside {
+      float: initial;
+    }
 
     .game {
       margin: 0 auto;
