@@ -86,7 +86,10 @@ var snakeY = snake[0].y;
   I have issue where I want to display the score as array (eg. Score: 1 , 1 , 2 , 1)
   I have not yet found the solution, I already apply the push() function but still haven't display the score as above.
   
-  Issue 3 (05/12/18)
+  Issue 3 (05/12/18) *resolved.
   I cannot reset the game after 4th counter. (I suspect the problem at line 100 - 103)
+  
+  Issue 4 (06/12/18)
+  Not able to display the array value. The value mention undefined.
 
 ```
