@@ -112,6 +112,7 @@ var drawModule = (function() {
       scoreText();
     } else {
       
+      // Display the score into html
       /*document.getElementById('theScore').value = scoreString;
       var scoreString = function() {
         return scoreArray.toString();
