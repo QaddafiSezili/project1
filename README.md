@@ -89,7 +89,10 @@ var snakeY = snake[0].y;
   Issue 3 (05/12/18) *resolved.
   I cannot reset the game after 4th counter. (I suspect the problem at line 100 - 103)
   
-  Issue 4 (06/12/18)
+  Issue 4 (06/12/18) * resolved.
   Not able to display the array value. The value mention undefined.
+  
+  Issue 5 (13/12/18)
+  Trying to add a value to a random number and display it for another score. Error in displaying the scoreDummy(line 103,104,112,&113). 
 
 ```
