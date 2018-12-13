@@ -100,6 +100,7 @@ var drawModule = (function() {
       if (snakeX == food.x && snakeY == food.y) {
         var tail = { x: snakeX, y: snakeY }; //If snake eats/ collide with the food. Create a new head instead of moving the tail.
         //we alter this part starts here.
+        //scoreDummy++;
         scoreDummy+randNumber;
         return scoreDummy;
 
@@ -109,6 +110,7 @@ var drawModule = (function() {
       } else if (snakeX == food2.x && snakeY == food2.y) {
         var tail = { x: snakeX, y: snakeY }; //If snake eats/ collide with the food2. Create a new head instead of moving the tail.
         //we alter this part starts here.
+        //scoreDummy++;
         scoreDummy+randNumber;
         return scoreDummy;
 
