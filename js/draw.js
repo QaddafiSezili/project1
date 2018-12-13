@@ -36,8 +36,14 @@ var drawModule = (function() {
       score_text = score_text + " " + score;
     });
     ctx.fillStyle = "blue";
-    ctx.fillText(score_text, 145, h - 5);
+    ctx.fillText(score_text, 125, h-5);
   }; // Display score in array here.
+
+  var scoreTextDummy = function() {
+    var scoreDummy_text = "D.Score: " + scoreDummy;
+    ctx.fillStyle = "red";
+    ctx.fillText(scoreDummy_text, 215, h-5);
+  }; // Display dummy score here
 
   var drawSnake = function() {
     var length = 4;
@@ -47,11 +53,16 @@ var drawModule = (function() {
     }
   };
 
+  var randomNumber = function() {
+    // Generate a random number
+    var randNumber = Math.floor((Math.random() * 10) + 1);
+  };
+
   var paint = function() {
 
     document.getElementById("theScore").innerHTML = ""; //reset back score value on html
 
-    ctx.fillStyle = "lightgrey";
+    ctx.fillStyle = "lightgrey"; //build the game canvas
     ctx.fillRect(0, 0, w, h);
     ctx.strokeStyle = "black";
     ctx.strokeRect(0, 0, w, h);
@@ -81,20 +92,26 @@ var drawModule = (function() {
       btn.removeAttribute("disabled", true);
       ctx.clearRect(0, 0, w, h);
       gameloop = clearInterval(gameloop);
-      //window.alert("Your score is : display arrayScore");  //to display the score after die
       return;
     }
 
-    if (eat < 4) {
+    if (eat < 9) {
       //create condition where snake only need eat 4 times to complete the game
-
       if (snakeX == food.x && snakeY == food.y) {
         var tail = { x: snakeX, y: snakeY }; //If snake eats/ collide with the food. Create a new head instead of moving the tail.
+        //we alter this part starts here.
+        scoreDummy+randNumber;
+        return scoreDummy;
+
         scoreArray.push(score_food_1); // push score for food 1
         createFood(); //Create new food
         eat++; //create counter
       } else if (snakeX == food2.x && snakeY == food2.y) {
         var tail = { x: snakeX, y: snakeY }; //If snake eats/ collide with the food2. Create a new head instead of moving the tail.
+        //we alter this part starts here.
+        scoreDummy+randNumber;
+        return scoreDummy;
+
         scoreArray.push(score_food_2); // push score for food 2
         createFood2(); //Create new food2.
         eat++; //create counter
@@ -113,25 +130,18 @@ var drawModule = (function() {
       pizza(food.x, food.y);
       apple(food2.x, food2.y);
       scoreText();
+      scoreTextDummy();
+      randomNumber();
     } else {
-      // Display the score into html
-      /*document.getElementById('theScore').value = scoreString;
-      var scoreString = function() {
-        return scoreArray.toString();
-      };*/
-
-      //display score into HTML
+      //display score into HTML by calling the scoreArray value
       var totalScoreString = function() {
-        var totalScore = "Total Score is:";
-        scoreArray.forEach(score => {
-          totalScore = totalScore + " " + score;
-        });
+        var totalScore = 0;
+        scoreArray.forEach(score => (totalScore = scoreArray));
         return totalScore.toString();
       };
       
-      document.getElementById("theScore").innerHTML = totalScoreString();
+      document.getElementById("theScore").innerHTML = "Your score is: " +totalScoreString();
 
-      window.alert("Your score is : your saved score here.."); // Display arrayScore and end the game
       btn.removeAttribute("disabled", true); //Reset the game
       ctx.clearRect(0, 0, w, h);
       gameloop = clearInterval(gameloop);
