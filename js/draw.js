@@ -100,19 +100,15 @@ var drawModule = (function() {
       if (snakeX == food.x && snakeY == food.y) {
         var tail = { x: snakeX, y: snakeY }; //If snake eats/ collide with the food. Create a new head instead of moving the tail.
         //we alter this part starts here.
-        //scoreDummy++;
-        scoreDummy+randNumber;
-        return scoreDummy;
-
+        scoreDummy++; //add 1 value to each food eat.
+        
         scoreArray.push(score_food_1); // push score for food 1
         createFood(); //Create new food
         eat++; //create counter
       } else if (snakeX == food2.x && snakeY == food2.y) {
         var tail = { x: snakeX, y: snakeY }; //If snake eats/ collide with the food2. Create a new head instead of moving the tail.
         //we alter this part starts here.
-        //scoreDummy++;
-        scoreDummy+randNumber;
-        return scoreDummy;
+        scoreDummy = scoreDummy + (Math.floor((Math.random() * 10) + 1)); //add random value for each food eat.
 
         scoreArray.push(score_food_2); // push score for food 2
         createFood2(); //Create new food2.
