@@ -95,7 +95,9 @@ var snakeY = snake[0].y;
   Issue 5 (13/12/18) * resolved.
   Trying to add a value to a random number and display it for another score. Error in displaying the scoreDummy(line 103,104,112,&113).
   
-  Issue 6 (11/1/2019) * resolved.
-  I want to retrieve the 'theScore' value into php file (I don't know, maybe index.php) so that I can insert it into database. No solution found and I a bit mess to combine those 3 programming language to run the system well. None of the code is running well. 
+  Issue 6 (11/1/2019) 
+  I want to retrieve the 'theScore' value into php file (I don't know, maybe index.php) so that I can insert it into database. No solution found and a bit mess to combine those 3 programming language to run the system well. None of the code is running well. 
+  
+  I want to try AJAX call but on tutorial all mentioned about submit button where I don't need that submit button to pass the value. I just need to retrieve the value only.
 
 ```
