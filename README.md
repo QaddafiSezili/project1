@@ -93,6 +93,9 @@ var snakeY = snake[0].y;
   Not able to display the array value. The value mention undefined.
   
   Issue 5 (13/12/18) * resolved.
-  Trying to add a value to a random number and display it for another score. Error in displaying the scoreDummy(line 103,104,112,&113). 
+  Trying to add a value to a random number and display it for another score. Error in displaying the scoreDummy(line 103,104,112,&113).
+  
+  Issue 6 (11/1/2019) * resolved.
+  I want to retrieve the 'theScore' value into php file (I don't know, maybe index.php) so that I can insert it into database. No solution found and I a bit mess to combine those 3 programming language to run the system well. None of the code is running well. 
 
 ```
