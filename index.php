@@ -20,6 +20,7 @@
  </body>
 </html>
 
+//display 'theScore' in php.
 <script>
   var score = totalScoreString();
 </script>
