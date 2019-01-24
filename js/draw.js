@@ -32,18 +32,18 @@ var drawModule = (function() {
 
   var scoreText = function() {
     var score_text = "Score: ";
-    scoreArray.forEach(score => {
+    scoreDummyArray.forEach(score => {
       score_text = score_text + " " + score;
     });
     ctx.fillStyle = "blue";
-    ctx.fillText(score_text, 125, h-5);
+    ctx.fillText(score_text, 125, h - 5);
   }; // Display score in array here.
 
-  var scoreTextDummy = function() {
-    var scoreDummy_text = "D.Score: " + scoreDummy;
-    ctx.fillStyle = "red";
-    ctx.fillText(scoreDummy_text, 215, h-5);
-  }; // Display dummy score here
+  // var scoreTextDummy = function() {
+  //   var scoreDummy_text = "D.Score: " + scoreDummy;
+  //   ctx.fillStyle = "red";
+  //   ctx.fillText(scoreDummy_text, 215, h-5);
+  // }; // Display dummy score here
 
   var drawSnake = function() {
     var length = 4;
@@ -55,11 +55,11 @@ var drawModule = (function() {
 
   var randomNumber = function() {
     // Generate a random number
-    var randNumber = Math.floor((Math.random() * 10) + 1);
+    var randNumber = Math.floor(Math.random() * 10 + 1);
+    return randNumber;
   };
 
   var paint = function() {
-
     document.getElementById("theScore").innerHTML = ""; //reset back score value on html
 
     ctx.fillStyle = "lightgrey"; //build the game canvas
@@ -100,17 +100,19 @@ var drawModule = (function() {
       if (snakeX == food.x && snakeY == food.y) {
         var tail = { x: snakeX, y: snakeY }; //If snake eats/ collide with the food. Create a new head instead of moving the tail.
         //we alter this part starts here.
-        scoreDummy++; //add 1 value to each food eat.
-        
+        // scoreDummy++; //add 1 value to each food eat.
+
         scoreArray.push(score_food_1); // push score for food 1
+        scoreDummyArray.push(randomNumber());
         createFood(); //Create new food
         eat++; //create counter
       } else if (snakeX == food2.x && snakeY == food2.y) {
         var tail = { x: snakeX, y: snakeY }; //If snake eats/ collide with the food2. Create a new head instead of moving the tail.
         //we alter this part starts here.
-        scoreDummy = scoreDummy + (Math.floor((Math.random() * 10) + 1)); //add random value for each food eat.
+        // scoreDummy = scoreDummy + (Math.floor((Math.random() * 10) + 1)); //add random value for each food eat.
 
         scoreArray.push(score_food_2); // push score for food 2
+        scoreDummyArray.push(randomNumber());
         createFood2(); //Create new food2.
         eat++; //create counter
       } else {
@@ -128,23 +130,25 @@ var drawModule = (function() {
       pizza(food.x, food.y);
       apple(food2.x, food2.y);
       scoreText();
-      scoreTextDummy();
-      randomNumber();
+      // scoreTextDummy();
+      // randomNumber();
     } else {
       //display score into HTML by calling the scoreArray value
-      var totalScoreString = function() {
-        var totalScore = 0;
-        scoreArray.forEach(score => (totalScore = scoreArray));
-        return totalScore.toString();
-      };
-      
-      document.getElementById("theScore").innerHTML = "Your score is: " +totalScoreString();
+      postScore(document.getElementById('username').value, scoreArray.toString()); //pass username and score
+      document.getElementById("theScore").innerHTML =
+        "Your score is: " + totalScoreString();
 
       btn.removeAttribute("disabled", true); //Reset the game
       ctx.clearRect(0, 0, w, h);
       gameloop = clearInterval(gameloop);
     } // close eat loop condition
   }; // close var paint function
+
+  var totalScoreString = function() {
+    var totalScore = 0;
+    scoreDummyArray.forEach(score => (totalScore = scoreDummyArray));
+    return totalScore.toString();
+  };
 
   var createFood = function() {
     food = {
@@ -196,6 +200,19 @@ var drawModule = (function() {
   var initValues = function() {
     eat = 0;
     scoreArray = [];
+  };
+
+  //post score to server side to be stored in database
+  var postScore = function(username, score) {
+    console.log(username);
+    console.log(score);
+    var formData = new FormData();
+    formData.append("username", username);
+    formData.append("score", score);
+
+    var request = new XMLHttpRequest();
+    request.open("POST", "http://localhost/snakegamemaster/server/store.php");
+    request.send(formData);
   };
 
   var init = function() {
