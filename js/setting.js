@@ -1,7 +1,7 @@
 
 var mycanvas = document.getElementById('mycanvas');
 var ctx = mycanvas.getContext('2d');
-var snakeSize = 4; 
+var snakeSize = 10; 
 var w = 350;
 var h = 350;
 var scoreArray = []; // array to store score
