@@ -101,6 +101,6 @@ var snakeY = snake[0].y;
   I want to try AJAX call but on tutorial all mentioned about submit button where I don't need that submit button to pass the value. I just need to retrieve the value only.
   
   Issue 7 (24/01/2019)
-  I have problem to echo the 'theScore' value.
+  I have problem to echo the 'theScore' value. Please refer index.php file
 
 ```
