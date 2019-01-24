@@ -99,5 +99,8 @@ var snakeY = snake[0].y;
   I want to retrieve the 'theScore' value into php file (I don't know, maybe index.php) so that I can insert it into database. No solution found and a bit mess to combine those 3 programming language to run the system well. None of the code is running well. 
   
   I want to try AJAX call but on tutorial all mentioned about submit button where I don't need that submit button to pass the value. I just need to retrieve the value only.
+  
+  Issue 7 (24/01/2019)
+  I have problem to echo the 'theScore' value.
 
 ```
