@@ -30,20 +30,20 @@ var drawModule = (function() {
     );
   }; //Additional food at here named apple.
 
-  var scoreText = function() {
+  /*var scoreText = function() {
     var score_text = "Score: ";
     scoreDummyArray.forEach(score => {
       score_text = score_text + " " + score;
     });
     ctx.fillStyle = "blue";
     ctx.fillText(score_text, 125, h - 5);
-  }; // Display score in array here.
+  }; // Display score in array here. */
 
-  // var scoreTextDummy = function() {
-  //   var scoreDummy_text = "D.Score: " + scoreDummy;
-  //   ctx.fillStyle = "red";
-  //   ctx.fillText(scoreDummy_text, 215, h-5);
-  // }; // Display dummy score here
+   var scoreTextDummy = function() {
+     var scoreDummy_text = "Score: " + scoreDummy;
+     ctx.fillStyle = "red";
+     ctx.fillText(scoreDummy_text, 215, h-5);
+   }; // Display dummy score here
 
   var drawSnake = function() {
     var length = 4;
@@ -95,12 +95,11 @@ var drawModule = (function() {
       return;
     }
 
-    if (eat < 9) {
-      //create condition where snake only need eat 4 times to complete the game
+    if (eat < 3) {
+      //create condition where snake only need eat 3 times to complete the game
       if (snakeX == food.x && snakeY == food.y) {
         var tail = { x: snakeX, y: snakeY }; //If snake eats/ collide with the food. Create a new head instead of moving the tail.
-        //we alter this part starts here.
-        // scoreDummy++; //add 1 value to each food eat.
+        scoreDummy++; //add 1 value to each food eat.
 
         scoreArray.push(score_food_1); // push score for food 1
         scoreDummyArray.push(randomNumber());
@@ -108,8 +107,7 @@ var drawModule = (function() {
         eat++; //create counter
       } else if (snakeX == food2.x && snakeY == food2.y) {
         var tail = { x: snakeX, y: snakeY }; //If snake eats/ collide with the food2. Create a new head instead of moving the tail.
-        //we alter this part starts here.
-        // scoreDummy = scoreDummy + (Math.floor((Math.random() * 10) + 1)); //add random value for each food eat.
+        scoreDummy = scoreDummy + (Math.floor((Math.random() * 10) + 1)); //add random value for each food eat.
 
         scoreArray.push(score_food_2); // push score for food 2
         scoreDummyArray.push(randomNumber());
@@ -129,8 +127,8 @@ var drawModule = (function() {
 
       pizza(food.x, food.y);
       apple(food2.x, food2.y);
-      scoreText();
-      // scoreTextDummy();
+      scoreTextDummy();
+      //scoreText();
       // randomNumber();
     } else {
       //display score into HTML by calling the scoreArray value
@@ -146,7 +144,8 @@ var drawModule = (function() {
 
   var totalScoreString = function() {
     var totalScore = 0;
-    scoreDummyArray.forEach(score => (totalScore = scoreDummyArray));
+    totalScore = scoreDummy;
+    //scoreDummyArray.forEach(score => (totalScore = scoreDummyArray));
     return totalScore.toString();
   };
 
@@ -199,6 +198,7 @@ var drawModule = (function() {
 
   var initValues = function() {
     eat = 0;
+    scoreDummy = 0;
     scoreArray = [];
   };
 
