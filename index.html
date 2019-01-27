@@ -1,4 +1,5 @@
 <html>
+<header> Login page. </header>
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" />
@@ -12,7 +13,9 @@
           </p>
           <br />
           <input type="text" id="username" name="username" value="" placeholder="username"/> <br />
-          <button id="btn">START</button><br />
+          <button id="btn">START</button>
+          <button id="registerbutton" onclick="window.location.href = 'registration.html';">REGISTER</button> <!-- I want to direct it to register page -->
+          <button id="homebutton" onclick="window.location.href = 'http://localhost/snakegamemaster';">HOME</button><br/>
           <br />
           <p style="margin:auto" id="theScore" class="pinside"></p>
       </div>
