@@ -15,14 +15,16 @@
           <input type="text" id="username" name="username" value="" placeholder="username"/> <br />
           <button id="btn">START</button>
           <button id="registerbutton" onclick="window.location.href = 'registration.html';">REGISTER</button> <!-- I want to direct it to register page -->
-          <button id="homebutton" onclick="window.location.href = 'http://localhost/snakegamemaster';">HOME</button><br/> 
+          <button id="homebutton" onclick="window.location.href = '#'">HOME</button><br/> 
           <br />
           <p style="margin:auto" id="theScore" class="pinside"></p>
       </div>
     </div>
+    
+    <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 
     <script src="js/setting.js"></script>
-    <script src="js/draw.js"></script>
+    <script src="js/register.js"></script> <!--add another function same as draw.js but for registration function-->
     <script src="js/app.js"></script>
   </body>
 </html>
