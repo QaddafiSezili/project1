@@ -95,12 +95,16 @@ var snakeY = snake[0].y;
   Issue 5 (13/12/18) * resolved.
   Trying to add a value to a random number and display it for another score. Error in displaying the scoreDummy(line 103,104,112,&113).
   
-  Issue 6 (11/1/2019) 
+  Issue 6 (11/1/2019) * resolved in other way
   I want to retrieve the 'theScore' value into php file (I don't know, maybe index.php) so that I can insert it into database. No solution found and a bit mess to combine those 3 programming language to run the system well. None of the code is running well. 
   
   I want to try AJAX call but on tutorial all mentioned about submit button where I don't need that submit button to pass the value. I just need to retrieve the value only.
   
-  Issue 7 (24/01/2019)
+  Issue 7 (24/01/2019) * resolved but no index.php file
   I have problem to echo the 'theScore' value. Please refer index.php file
+  
+  Issue 8 (04/02/19)
+  I want to do login process on index.html and I have to do registration process as well (So, I decide to create registration.html).
+  I try to do it by modify the store.php file into another .php file but it not run as required. So, I cannot do login and register process.
 
 ```
