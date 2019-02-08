@@ -8,24 +8,24 @@
     <div class="game">
       <div id="home">
         <canvas id="mycanvas" width="350" height="350"></canvas>
+        <div class="login-form">
           <p style="margin:auto">
             Login form. <br />
             Please insert your username and click start to eat the pizza!
           </p><br />
-          <form class="login-form"> <!-- sorry, I should not use <form> but I want to make the login & register form in one place, if possible. -->
-            <input type="text" id="username" name="username" value="" placeholder="Username" required/><br />
-          </form>
+          <input type="text" id="username" name="username" value="" placeholder="Username" required/><br />
+        </div>
 
-          <form class="register-form">
-            <p style="margin:auto">Register form.</p><br />
-            <p style="margin:auto">Please enter email and username. Then play the game to obtain password.</p>
-            <input type="text" id="email" name="email" value="" placeholder="Enter email" required/><br />
-            <input type="text" id="username" name="username" value="" placeholder="Enter username" required/><br />
-          </form>
+        <div class="register-form">
+          <p style="margin:auto">Register form.</p><br />
+          <p style="margin:auto">Please enter email and username. Then play the game to obtain password.</p>
+          <input type="text" id="email" name="email" value="" placeholder="Enter email" required/><br />
+          <input type="text" id="username" name="username" value="" placeholder="Enter username" required/><br />
+        </div>
 
           <button id="btn">START</button> <!-- How to make this start button has required for the input text field? Require email & username before playing game (for register) & username (for login). -->
           <button class="registerbutton" onclick="window.location.href ='#'">REGISTER</button><!-- I want to direct it to register page -->
-          <button id="homebutton" onclick="window.location.href='#'">HOME</button><br/> 
+          <button class="homebutton" onclick="window.location.href='#'">HOME</button><br/> 
           <p style="margin:auto" id="theScore" class="pinside"></p>
       </div>
     </div>
