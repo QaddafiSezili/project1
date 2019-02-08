@@ -107,9 +107,9 @@ var snakeY = snake[0].y;
   I want to do login process on index.html and I have to do registration process as well (So, I decide to create registration.html).
   I try to do it by modify the store.php file into another .php file but it not run as required. So, I cannot do login and register process.
   
-  Issue 9 (06/02/19)
-  I combine register and login in one place to make the code understandable, but the problem is I use <form> which I guess is not suitable.
-  I want to make the START button has required to empty data. I also want to make the button or the system has this features where it can check whether the data in text field is empty, correct input or not before start playing the game. Yet, I fail to do so.
+  Issue 9 (06/02/19) *updated (08/02/19)
+  I want to make the START button has required to empty data.
+  I also want to make the button or the system has this features where it can check whether the data in text field is empty, correct input or not before start playing the game. Yet, I fail to do so.
   Register & login process still have problem.
 
 ```
