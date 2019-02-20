@@ -109,7 +109,15 @@ var snakeY = snake[0].y;
   
   Issue 9 (06/02/19) *updated (08/02/19)
   I want to make the START button has required to empty data.
-  I also want to make the button or the system has this features where it can check whether the data in text field is empty, correct input or not before start playing the game. Yet, I fail to do so.
+  
+  I also want to make the button or the system has this features
+  where it can check whether the data in text field is empty, correct input or not before start playing the game.
+  Yet, I fail to do so.
+  
   Register & login process still have problem.
+  
+  Issue 10 (20/02/19)
+  I try to make the START button has required features, but it always display error message even there is data in the username field.
+  Register & login process still cannot resolve.
 
 ```
